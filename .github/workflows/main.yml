@@ -24,7 +24,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ secrets.DOCKER_USERNAME }}/Projeto4_CICD
+          images: ${{ secrets.DOCKER_USERNAME }}/Projeto4-CICD
           tags: |
             type=sha,prefix=,format=short
 
@@ -43,12 +43,12 @@ jobs:
       - name: Checkout manifests repository
         uses: actions/checkout@v4
         with:
-          repository: bruno-pedron/Projeto4_manifests
+          repository: bruno-pedron/Projeto4-manifests
           ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Update image tag in manifest
         run: |
-          sed -i 's|image: .*|image: ${{ secrets.DOCKER_USERNAME }}/Projeto4_CICD:${{ needs.build-and-push.outputs.image_tag }}|g' deployment.yaml
+          sed -i 's|image: .*|image: ${{ secrets.DOCKER_USERNAME }}/Projeto4-CICD:${{ needs.build-and-push.outputs.image_tag }}|g' deployment.yaml
 
       - name: Commit and push changes
         run: |
