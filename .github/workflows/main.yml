@@ -24,7 +24,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ secrets.DOCKER_USERNAME }}/Projeto4-CICD
+          images: ${{ secrets.DOCKER_USERNAME }}/projeto4-cicd
           tags: |
             type=sha,prefix=,format=short
 
