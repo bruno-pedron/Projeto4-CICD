@@ -48,7 +48,7 @@ jobs:
 
       - name: Update image tag in manifest
         run: |
-          sed -i 's|image: .*|image: ${{ secrets.DOCKER_USERNAME }}/Projeto4-CICD:${{ needs.build-and-push.outputs.image_tag }}|g' deployment.yaml
+          sed -i 's|image: .*|image: ${{ secrets.DOCKER_USERNAME }}/projeto4-cicd:${{ needs.build-and-push.outputs.image_tag }}|g' deployment.yaml
 
       - name: Commit and push changes
         run: |
