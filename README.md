@@ -47,10 +47,10 @@ Antes de começar, garanta que os seguintes softwares e contas estão configurad
 
 Nesta etapa, criamos os dois repositórios Git que formam a base do nosso fluxo GitOps e a aplicação FastAPI.
 
-1.  **Crie o Repositório da Aplicação (`hello-app`):**
+1.  **Crie o Repositório da Aplicação (Ex.: `hello-app`):**
     * Crie um repositório público no GitHub chamado `hello-app`.
     * Dentro dele, adicione os seguintes arquivos:
-        * `main.py` (Aplicação FastAPI):
+        * [`main.py`](main.py) (Aplicação FastAPI):
             ```python
             from fastapi import FastAPI
             app=FastAPI()
@@ -58,7 +58,7 @@ Nesta etapa, criamos os dois repositórios Git que formam a base do nosso fluxo 
             async def root():
                 return {"message": "Hello World"}
             ```
-        * `Dockerfile` (Instruções para construir a imagem):
+        * [`Dockerfile`](Dockerfile) (Instruções para construir a imagem):
             ```dockerfile
             FROM python:3.9-slim
             WORKDIR /app
@@ -68,7 +68,7 @@ Nesta etapa, criamos os dois repositórios Git que formam a base do nosso fluxo 
             ```
 
 2.  **Crie o Repositório de Manifestos (`hello-manifests`):**
-    * Crie um segundo repositório público no GitHub chamado `hello-manifests`. Este repositório ficará vazio por enquanto.
+    * Crie um segundo repositório público no GitHub chamado [`hello-manifests`](https://github.com/bruno-pedron/Projeto4-manifests). Este repositório ficará vazio por enquanto.
 
 ---
 
@@ -76,7 +76,7 @@ Nesta etapa, criamos os dois repositórios Git que formam a base do nosso fluxo 
 
 No repositório `hello-manifests`, criamos os arquivos que descrevem como nossa aplicação deve ser executada no Kubernetes.
 
-1.  **Crie o `deployment.yaml`:**
+1.  **Crie o [`deployment.yaml`](https://github.com/bruno-pedron/Projeto4-manifests/blob/main/deployment.yaml):**
     * Este arquivo gerencia os Pods da aplicação. Substitua `SEU-USUARIO-DOCKERHUB` pelo seu usuário.
         ```yaml
         apiVersion: apps/v1
@@ -100,7 +100,7 @@ No repositório `hello-manifests`, criamos os arquivos que descrevem como nossa 
                 - containerPort: 80
         ```
 
-2.  **Crie o `service.yaml`:**
+2.  **Crie o [`service.yaml`](https://github.com/bruno-pedron/Projeto4-manifests/blob/main/service.yaml):**
     * Este arquivo expõe os Pods através de um ponto de acesso de rede estável.
         ```yaml
         apiVersion: v1
@@ -130,8 +130,9 @@ Agora, configuramos o pipeline que automatiza o build e a atualização dos mani
         * `SSH_PRIVATE_KEY`: Uma chave SSH privada que tem permissão de escrita (via Deploy Key) no repositório `hello-manifests`.
 
 2.  **Crie o Arquivo de Workflow:**
-    * No repositório `hello-app`, crie a estrutura `.github/workflows/` e, dentro dela, o arquivo `main.yml`.
+    * No repositório `hello-app`, crie a estrutura [`.github/workflows/`](.github/workflows) e, dentro dela, o arquivo [`main.yml`](.github/workflows/main.yaml).
     * Substitua `SEU-USUARIO-GITHUB` e `SEU-USUARIO-DOCKERHUB` pelos seus respectivos nomes.
+
         ```yaml
         name: CI-CD Pipeline
         on:
