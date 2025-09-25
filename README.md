@@ -1,11 +1,9 @@
 # Projeto 4: CI/CD com GitHub Actions, Docker e ArgoCD
-
-Este repositório documenta a implementação de um pipeline completo de CI/CD (Integração Contínua e Entrega Contínua) para uma aplicação FastAPI. O projeto utiliza o GitHub Actions para automação de build e push de imagens Docker, e o ArgoCD para realizar o deploy contínuo em um ambiente Kubernetes, seguindo as melhores práticas de GitOps.
-
-<div align="center">
-    <img src="https://skillicons.dev/icons?i=github,githubactions,docker,kubernetes" />
-    <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/argo-cd.svg" width=40px />
+<div align=center>
+    <img src="https://i.postimg.cc/pTrvwpVq/Untitled-diagram-Mermaid-Chart-2025-09-25-013226.png" alt="Diagrama de arquitetura do projeto CI/CD" width=770px>
 </div>
+<br>
+Este repositório documenta a implementação de um pipeline completo de CI/CD (Integração Contínua e Entrega Contínua) para uma aplicação FastAPI. O projeto utiliza o GitHub Actions para automação de build e push de imagens Docker, e o ArgoCD para realizar o deploy contínuo em um ambiente Kubernetes, seguindo as melhores práticas de GitOps.
 
 ## Tabela de Conteúdo
 
